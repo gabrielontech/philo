@@ -1,0 +1,1 @@
+checker.o: src/parsing/checker.c inc/../inc/philo.h
