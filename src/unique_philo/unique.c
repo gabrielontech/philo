@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   unique.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkitoko <gkitoko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 21:33:55 by gkitoko           #+#    #+#             */
-/*   Updated: 2022/08/01 14:59:05 by gkitoko          ###   ########.fr       */
+/*   Created: 2022/08/01 12:34:46 by gkitoko           #+#    #+#             */
+/*   Updated: 2022/10/18 17:09:09 by gkitoko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-size_t	ft_strlen(char *str)
+void	unique(long int die_time, long long process_time)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i] != 0)
-		i++;
-	return (i);
+	printf("%lli ", timestamp() - process_time);
+	printf("1 has taken a fork\n");
+	wait_action(die_time);
+	printf("%lli ", timestamp() - process_time);
+	printf("1 died\n");
 }

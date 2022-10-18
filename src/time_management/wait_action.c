@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   wait_action.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkitoko <gkitoko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 21:33:55 by gkitoko           #+#    #+#             */
-/*   Updated: 2022/08/01 14:59:05 by gkitoko          ###   ########.fr       */
+/*   Created: 2022/08/01 12:44:28 by gkitoko           #+#    #+#             */
+/*   Updated: 2022/10/18 17:09:03 by gkitoko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-size_t	ft_strlen(char *str)
+void	wait_action(long long time)
 {
-	size_t	i;
+	long long	i;
 
-	i = 0;
-	while (str[i] != 0)
-		i++;
-	return (i);
+	i = timestamp();
+	while (1)
+	{
+		if (timediff(i, timestamp()) >= time)
+			break ;
+		usleep(100);
+	}
 }

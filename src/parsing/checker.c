@@ -6,7 +6,7 @@
 /*   By: gkitoko <gkitoko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:28:11 by gkitoko           #+#    #+#             */
-/*   Updated: 2022/07/25 10:38:53 by gkitoko          ###   ########.fr       */
+/*   Updated: 2022/10/18 17:06:46 by gkitoko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	check_is_valid(char **av)
 	i = 1;
 	while (av[i] != NULL)
 	{
-		if(strlen(av[i]) > 10)
+		if (ft_strlen(av[i]) > 10)
 			return (write(2, "Error\n", 6), exit(EXIT_FAILURE));
 		if (ft_atoi(av[i]) < 0 || ft_atoi(av[i]) > INT_MAX)
 			return (write(2, "Error\n", 6), exit(EXIT_FAILURE));
@@ -61,17 +61,8 @@ void	check_is_digit(int ac, char **av)
 
 void	checker(int ac, char **av)
 {
-	if (ac < 2)
+	if (ac != 5 && ac != 6)
 		return (write(2, "Error\n", 6), exit(EXIT_FAILURE));
-	else if (ac == 5)
-	{
-		check_is_digit(ac, av);
-		check_is_valid(av);
-	}else if (ac == 6)
-	{
-		check_is_digit(ac, av);
-		check_is_valid(av);
-	}
-	else
-		return (write(2, "Error\n", 6), exit(EXIT_FAILURE));		
+	check_is_digit(ac, av);
+	check_is_valid(av);
 }
